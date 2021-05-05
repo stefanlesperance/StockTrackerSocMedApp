@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'will_paginate', '~> 3.3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'webpacker'
+gem 'devise', '~> 4.8'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
