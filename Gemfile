@@ -14,6 +14,7 @@ gem 'will_paginate', '~> 3.3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'webpacker'
 gem 'devise', '~> 4.8'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
