@@ -12,6 +12,4 @@ class Stock < ApplicationRecord
 		#in Ruby, the return is implied via last statement
 		client.price(ticker_symbol)
 	end
- 
-
 end

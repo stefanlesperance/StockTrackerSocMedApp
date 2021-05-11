@@ -1,0 +1,13 @@
+<div class ="container justify-content-center">
+	<%= form_with(model: @stock, class: "shadow p-3 mb-3 bg-info rounded") do |f| %>
+		<div class="form-group row">
+			<%= f.label :ticker, class: "col-2 col-form-label text-light" %>
+			<div class="col-10">
+				<%= f.text_field :ticker, class: "form-control shadow rounded", placeholder: "Ticker" %>
+			</div>
+		</div>
+        <div class="form-group row justify-content-center">
+          <%= f.submit "Submit", stocks_, class: "btn btn-outline-light btn-lg" %>
+        </div>
+	<% end %>
+</div>	
