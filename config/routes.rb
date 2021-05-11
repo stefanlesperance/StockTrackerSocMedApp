@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  get 'users/my_portfolio'
   devise_for :users
   root 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'my_portfolio', to: 'users#my_portfolio'
+  #This lets me create any route, period, it doesn't have to be a page. Remember that. I created this specificallyt to route to-
+  # the one controller action.
+  get 'search_stock', to: 'stocks#search'
+
 end

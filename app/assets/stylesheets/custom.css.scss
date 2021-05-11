@@ -1,2 +1,14 @@
 @import 'bootstrap/dist/css/bootstrap';
+@import "font-awesome";
 
+.search-area{
+	padding-top: 50px;
+}
+
+.no-right-padding {
+	padding-right: 2px!important;
+}
+
+.no-left-padding {
+	padding-left: 2px!important;
+}
