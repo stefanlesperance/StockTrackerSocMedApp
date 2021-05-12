@@ -1,6 +1,12 @@
 class Stock < ApplicationRecord
 	has_many :user_stocks
 	has_many :users, through: :user_stocks
+
+
+	#Tests a name and ticker symbol exist for each Stock, prior to it being saved to the database.
+	#Why not price? Because it's changeable/mutable etc.
+	validates :name, :ticker, presence: true
+
 	#adding self. in front of it makes it a class method - there is no need to worry about an instance.
 	#No depending on a variable
 	#Should review the various options and what they are good for.
