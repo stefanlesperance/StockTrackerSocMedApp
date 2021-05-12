@@ -1,6 +1,7 @@
-<h1>This is the result page.</h1>
-
-
-<%= @stock.close_price %>
-<%= @stock.price %>
-<%= @stock.logo %>
+<% if @stock%>
+	<div class="card card-header results-block">
+		<strong>Symbol: </strong> <%= @stock.ticker %>
+		<strong>Name: </strong> <%= @stock.name %>
+		<strong>Price:</strong> <%= @stock.last_price %>
+	</div>
+<% end %>

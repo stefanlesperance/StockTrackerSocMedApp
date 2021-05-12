@@ -1,7 +1,7 @@
 <h1 class = "mb-4">My Portfolio</h1>
 <div class="search-area">
 	<h3>Search Stocks</h3>
-	<%= form_tag search_stock_path, method: :get do%>
+	<%= form_tag search_stock_path, method: :get, remote: true do%>
 		<div class="form-group row form-icons">
 			<div class="col-sm-9 no-right-padding">
 				<!-- Text field tag needs a name, hence :stock -->
@@ -15,13 +15,8 @@
 				<% end %>
 			</div>
 		</div>
-
 	<% end %>
-	<% if @stock%>
-		<div class="card card-header results-block">
-			<strong>Symbol: </strong> <%= @stock.ticker %>
-			<strong>Name: </strong> <%= @stock.name %>
-			<strong>Price:</strong> <%= @stock.last_price %>
-		</div>
-	<% end %>
+</div>
+<div id="results">
+	<%= render 'users/result' %>
 </div>
