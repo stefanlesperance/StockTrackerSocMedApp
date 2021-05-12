@@ -1,5 +1,6 @@
 class Stock < ApplicationRecord
-
+	has_many :user_stocks
+	has_many :users, through: :user_stocks
 	#adding self. in front of it makes it a class method - there is no need to worry about an instance.
 	#No depending on a variable
 	#Should review the various options and what they are good for.
