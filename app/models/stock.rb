@@ -26,4 +26,10 @@ class Stock < ApplicationRecord
 				return nil
 		end
 	end
+
+	def self.check_db(ticker_symbol)
+		#It is not Stock.where, because we are already in the model.
+		#Therefore Stock is implied.
+		where(ticker: ticker_symbol).first
+	end
 end
