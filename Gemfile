@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'will_paginate', '~> 3.3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'webpacker'
+gem 'hirb', '~> 0.7.3'
 gem 'devise', '~> 4.8'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'iex-ruby-client'
