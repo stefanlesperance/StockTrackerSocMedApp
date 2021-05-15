@@ -29,4 +29,9 @@ class User < ApplicationRecord
   	under_stock_limit? && !stock_already_tracked?(ticker_symbol)
   	#Question - I should understand why User makes more sense than stock, which is what I initially did.
   end
+
+  def full_name
+    return "#{first_name} #{last_name}" if first_name || last_name
+    "Anonymous"
+  end
 end
