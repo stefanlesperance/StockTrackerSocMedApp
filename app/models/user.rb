@@ -3,6 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
+  #The code below appears identical to the code above
+  #Yet, if you look in the Friendship Model, you will see that Friendship belongs_to :friend, but class of 'User'
+  #Thus it is circular. Friendship doesn't truly exist independently of User.
+  has_many :friendships
+  has_many :friends, through: :friendships
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
