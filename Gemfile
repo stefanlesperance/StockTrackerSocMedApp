@@ -19,6 +19,8 @@ gem 'devise-bootstrap-views', '~> 1.0'
 gem 'iex-ruby-client'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.7'
 
+
+
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

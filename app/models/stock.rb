@@ -13,7 +13,7 @@ class Stock < ApplicationRecord
 	#Far too often I just default to what I regularly use without thought
 	def self.new_lookup(ticker_symbol)
 		client = IEX::Api::Client.new(
-		  publishable_token: Rails.application.credentials[:sandbox_api_key],
+		  publishable_token: "Tpk_ed4d9e67e0f04eadb7133ad96551debf",
 		  endpoint: 'https://sandbox.iexapis.com/v1'
 		)
 		#in Ruby, the return is implied via last statement
