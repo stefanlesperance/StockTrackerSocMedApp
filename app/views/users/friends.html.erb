@@ -1,0 +1,15 @@
+<h1 class = "text-center">Friendship Page</h1>
+<div class = "row justify-content-center">
+	<div class = "col-md-9">
+		<% if current_user.friends.blank? %>
+			<h3>You Have No Friends </h3>
+		<% else %>
+			<h3 class = "text-center">Friends</h3>
+			<% @friends_list.each do |friend| %>
+				<ul class = "list-group">
+					<li class = "list-group-item text-center" > <%= friend.full_name %> </li> 
+				</ul>
+			<% end %>
+		<% end %>
+	</div>
+</div>
