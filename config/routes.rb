@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   #This lets me create any route, period, it doesn't have to be a page. Remember that. I created this specificallyt to route to-
   # the one controller action.
   get 'search_stock', to: 'stocks#search'
+  get 'friend_search', to: 'friendship#search'
   get 'friend_destroy', to: 'users#destroy_friend_link'
 
 end

@@ -1,0 +1,18 @@
+<div class="results-block">
+	<%= render 'shared/flash' %>
+</div>
+
+<% if @user %>
+	<div class="card card-header results-block">
+		<strong>E-mail: </strong> <%= @user.email %>
+		<strong>First Name: </strong> <%= @user.first_name %>
+		<strong>Last Name:</strong> <%= @user.last_name %>
+		<%  if !current_user.check_friend_list(@user.email) %>
+			<%= link_to "Add Friend", user_stocks_path(email: @user.email), class: "btn btn-xs btn-success", method: :post%>
+		<% else %>
+			<span class="badge badge-secondary">
+				Already Added
+			</span>	
+		<% end %>
+	</div>
+<% end %>

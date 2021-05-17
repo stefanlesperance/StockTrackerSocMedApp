@@ -1,14 +1,28 @@
 <h1 class = "text-center m-4">Friendship Page</h1>
 <div class="row justify-content-center">
 	<div class="col-9">
-		<h2>Search Bar</h2>
+		<%= form_tag friend_search_path, remote: true, method: :get do%>
+		<div class="form-group row form-icons">
+			<div class="col-sm-9 no-right-padding">
+				<!-- Text field tag needs a name, hence :stock -->
+				<!-- Simultaneously, it works with the params hash, but we must SPECIFY what is being sent -->
+				<!-- What we want is the value we are sending  -->
+				<%= text_field_tag :friend, params[:friend], placeholder: "E-mail or Name", autofocus: true, class: "form-control form-control-lg" %>
+			</div>
+			<div class="col-sm-3 no-left-padding">
+				<%= button_tag type: :submit, class: "btn btn-success" do %>
+					<%= fa_icon 'search 2x'%>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
 	</div>
 </div>
-
-
 <br>
+	<div id ="results">
+		<%= render 'users/friendresult'%>
+	</div>
 <br>
-
 <% if !current_user.friends.blank? %>
 	<div class="row justify-content-center">
 		<div class="col-9">
