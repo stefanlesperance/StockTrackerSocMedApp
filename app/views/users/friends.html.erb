@@ -1,15 +1,29 @@
-<h1 class = "text-center">Friendship Page</h1>
-<div class = "row justify-content-center">
-	<div class = "col-md-9">
-		<% if current_user.friends.blank? %>
-			<h3>You Have No Friends </h3>
-		<% else %>
-			<h3 class = "text-center">Friends</h3>
-			<% @friends_list.each do |friend| %>
-				<ul class = "list-group">
-					<li class = "list-group-item text-center" > <%= friend.full_name %> </li> 
-				</ul>
-			<% end %>
-		<% end %>
+<h1 class = "text-center m-4">Friendship Page</h1>
+<% if !current_user.friends.blank? %>
+	<div class="row justify-content-center">
+		<div class="col-9">
+			<table class="table table-bordered ">
+				   <thead>
+				    <tr>
+				      <th scope="col">E-mail</th>
+				      <th scope="col">First Name</th>
+				      <th scope="col">Last Name</th>
+				      <th scope="col">Actions</th>
+				    </tr>
+				  </thead>
+			  <tbody>
+			    <% @friends_list.each do |friend| %>
+			    	<tr>
+				      <th scope="row"><%= friend.email%></th>
+				      <td><%= friend.first_name %></td>
+				      <td><%= friend.last_name %></td>
+				      <td><%= button_to "Stop Following", friend_destroy_path(friend), method: :destroy_friend_link, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-warning" %></td>
+			    	</tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
 	</div>
-</div>
+<% else %>
+	<h3>You Have No Friends :( </h3>
+<% end %>
