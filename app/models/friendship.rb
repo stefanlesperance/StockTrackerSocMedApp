@@ -17,8 +17,6 @@ class Friendship < ApplicationRecord
    end
 
 
-   def check_friend_list(email)
-   		friends.where(email: email).first
-   end
+
 
 end
