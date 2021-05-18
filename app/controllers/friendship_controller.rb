@@ -26,10 +26,11 @@ class FriendshipController < ApplicationController
 		# At it's simplest, I just need to shovel the user in and flash everything. 
 		#Actually, I need to find the user based on the e-mail = No I don't I just need to pass the WHOLE user and simply shovel things in.
 		#This should grab the param and let me track down the user, in which case I can create the connection.
+		# I need to create a check to see if the friend already exists
+
 
 		@friend = Friendship.create(user_id: params[:user], friend_id: params[:friend])
 		if !@friend.blank?
-			@friend.save
 			flash[:notice] = "Friend was successfully added to your friends list."
 			redirect_to users_friends_path
 		else
@@ -39,10 +40,12 @@ class FriendshipController < ApplicationController
 	end
 
 	def destroy
-	  	friend = Friendship.where(user_id: current_user.id, friend: friend.id).first
-	  	friend.destroy
-	  	flash[:notice] = "#{friend.full_name} was successfully removed from portfolio"
-		redirect_to users_friends_path
+	  	friend = Friendship.where(user_id: current_user.id, friend_id: params[:id] ).first
+	  	if !friend.blank?
+		  	friend.destroy
+		  	flash[:notice] = "Friend was successfully removed from portfolio"
+			redirect_to users_friends_path
+		end
 	end
 
 

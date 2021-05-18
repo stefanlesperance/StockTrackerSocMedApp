@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :user_stocks, only: [:create, :destroy]
-  resources :friendship, only: [:create]
+  resources :friendship, only: [:create, :destroy]
   get 'users/my_portfolio'
   devise_for :users
   root 'home#index'
@@ -10,6 +10,5 @@ Rails.application.routes.draw do
   # the one controller action.
   get 'search_stock', to: 'stocks#search'
   get 'friend_search', to: 'friendship#search'
-  get 'friend_destroy', to: 'users#destroy_friend_link'
 
 end

@@ -41,7 +41,7 @@
 				      <th scope="row"><%= friend.email%></th>
 				      <td><%= friend.first_name %></td>
 				      <td><%= friend.last_name %></td>
-				      <td><%= button_to "Stop Following", friend_destroy_path(friend), method: :destroy_friend_link, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-warning" %></td>
+				      <td><%= button_to "Stop Following", friendship_path(friend.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-warning" %></td>
 			    	</tr>
 			    <% end %>
 			  </tbody>
