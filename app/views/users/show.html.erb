@@ -1,3 +1,5 @@
+<h1>This is the SHOW Page</h1>
+
 <% if @user %>
 	<div class="card card-header results-block">
 		<strong>E-mail: </strong> <%= link_to "#{@user.email}", user_profile_path(@user) %>
@@ -11,4 +13,6 @@
 			</span>	
 		<% end %>
 	</div>
+<%else%>
+	<h2>That Person Doesn't Exist</h2>
 <% end %>

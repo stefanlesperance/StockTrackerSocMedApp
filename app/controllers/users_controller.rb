@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
-  def friends
+ 
+  def show
+  	byebug
+  	@user = User.where(email: params[:friend])
+  end 
+
+
+  def friends_list
 	@friends_list = current_user.friends
   end
 
