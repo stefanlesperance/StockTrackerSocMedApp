@@ -1,18 +1,33 @@
-<h1>This is the SHOW Page</h1>
-
 <% if @user %>
+	<h1><%= @user.first_name%>'s Stocks Page</h1>
 	<div class="card card-header results-block">
-		<strong>E-mail: </strong> <%= link_to "#{@user.email}", user_profile_path(@user) %>
+		<strong>E-mail: </strong> <%= @user.email %>
 		<strong>First Name: </strong> <%= @user.first_name %>
 		<strong>Last Name:</strong> <%= @user.last_name %>
-		<%  if !current_user.check_friend_list(@user.email) %>
-			<%= link_to "Add Friend", friendship_index_path(user: current_user,  friend: @user), class: "btn btn-xs btn-success", method: :post%>
-		<% else %>
-			<span class="badge badge-secondary">
-				Already Added
-			</span>	
-		<% end %>
 	</div>
-<%else%>
-	<h2>That Person Doesn't Exist</h2>
+
+	<% if !@user.stocks.blank? %>
+	<div class="row">
+		<div class="col-9">
+			<table class="table table-bordered ">
+				   <thead>
+				    <tr>
+				      <th scope="col">Ticker</th>
+				      <th scope="col">Name</th>
+				      <th scope="col">Price</th>
+				    </tr>
+				  </thead>
+			  <tbody>
+			    <% @tracked_stocks.each do |stock| %>
+			    	<tr>
+				      <th scope="row"><%= stock.ticker%></th>
+				      <td><%= stock.name %></td>
+				      <td><%= stock.last_price%></td>
+			    	</tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+<% end %>
 <% end %>

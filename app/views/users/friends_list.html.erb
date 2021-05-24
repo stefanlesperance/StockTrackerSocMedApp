@@ -38,7 +38,8 @@
 			  <tbody>
 			    <% @friends_list.each do |friend| %>
 			    	<tr>
-				      <th scope="row"><%= link_to "#{friend.email}", user_profile_path(friend.email, method: :show) %></th>
+			    		<!-- This should pass my user info, which is everything I need. -->
+				      <th scope="row"><%= link_to "#{friend.email}", {:controller => "users", :action => "show", :friend_id => friend.id} %></th>
 				      <td><%= friend.first_name %></td>
 				      <td><%= friend.last_name %></td>
 				      <td><%= button_to "Stop Following", friendship_path(friend.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-warning" %></td>
