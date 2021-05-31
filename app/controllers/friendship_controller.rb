@@ -32,10 +32,10 @@ class FriendshipController < ApplicationController
 		@friend = Friendship.create(user_id: params[:user], friend_id: params[:friend])
 		if !@friend.blank?
 			flash[:notice] = "Friend was successfully added to your friends list."
-			redirect_to users_friends_path
+			redirect_to users_friends_list_path
 		else
 			flash[:notice] = "Unable to add friend"
-			redirect_to users_friends_path
+			redirect_to users_friends_list_path
 		end
 	end
 
@@ -44,7 +44,7 @@ class FriendshipController < ApplicationController
 	  	if !friend.blank?
 		  	friend.destroy
 		  	flash[:notice] = "Friend was successfully removed from portfolio"
-			redirect_to users_friends_path
+			redirect_to users_friends_list_path
 		end
 	end
 

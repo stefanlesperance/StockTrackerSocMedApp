@@ -1,6 +1,6 @@
 <% if @user %>
 	<div class="card card-header results-block">
-		<strong>E-mail: </strong> <%= link_to "#{@user.email}", user_profile_path(@user) %>
+		<strong>E-mail: </strong> <%= @user.email %>
 		<strong>First Name: </strong> <%= @user.first_name %>
 		<strong>Last Name:</strong> <%= @user.last_name %>
 		<%  if !current_user.check_friend_list(@user.email) %>
