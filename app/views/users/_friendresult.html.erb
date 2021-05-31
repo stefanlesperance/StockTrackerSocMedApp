@@ -1,0 +1,14 @@
+<% if @user %>
+	<div class="card card-header results-block">
+		<strong>E-mail: </strong> <%= @user.email %>
+		<strong>First Name: </strong> <%= @user.first_name %>
+		<strong>Last Name:</strong> <%= @user.last_name %>
+		<%  if !current_user.check_friend_list(@user.email) %>
+			<%= link_to "Add Friend", friendship_index_path(user: current_user,  friend: @user), class: "btn btn-xs btn-success", method: :post%>
+		<% else %>
+			<span class="badge badge-secondary">
+				Already Added
+			</span>	
+		<% end %>
+	</div>
+<% end %>

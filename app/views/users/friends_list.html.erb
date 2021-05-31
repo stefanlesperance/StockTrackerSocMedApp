@@ -1,0 +1,54 @@
+<h1 class = "text-center m-4">Friendship Page</h1>
+<div class="row justify-content-center">
+	<div class="col-9">
+		<%= form_tag friend_search_path, remote: true, method: :get do%>
+		<div class="form-group row form-icons">
+			<div class="col-sm-9 no-right-padding">
+				<!-- Text field tag needs a name, hence :stock -->
+				<!-- Simultaneously, it works with the params hash, but we must SPECIFY what is being sent -->
+				<!-- What we want is the value we are sending  -->
+				<%= text_field_tag :friend, params[:friend], placeholder: "E-mail or Name", autofocus: true, class: "form-control form-control-lg" %>
+			</div>
+			<div class="col-sm-3 no-left-padding">
+				<%= button_tag type: :submit, class: "btn btn-success" do %>
+					<%= fa_icon 'search 2x'%>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+	</div>
+</div>
+<br>
+	<div id ="results">
+		<%= render 'users/friendresult'%>
+	</div>
+<br>
+<% if !current_user.friends.blank? %>
+	<div class="row justify-content-center">
+		<div class="col-9">
+			<table class="table table-bordered ">
+				   <thead>
+				    <tr>
+				      <th scope="col">E-mail</th>
+				      <th scope="col">First Name</th>
+				      <th scope="col">Last Name</th>
+				      <th scope="col">Actions</th>
+				    </tr>
+				  </thead>
+			  <tbody>
+			    <% @friends_list.each do |friend| %>
+			    	<tr>
+			    		<!-- This should pass my user info, which is everything I need. -->
+				      <th scope="row"><%= link_to "#{friend.email}", {:controller => "users", :action => "show", :friend_id => friend.id} %></th>
+				      <td><%= friend.first_name %></td>
+				      <td><%= friend.last_name %></td>
+				      <td><%= button_to "Stop Following", friendship_path(friend.id), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-warning" %></td>
+			    	</tr>
+			    <% end %>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+<% else %>
+	<h3>You Have No Friends :( </h3>
+<% end %>

@@ -39,4 +39,10 @@ class User < ApplicationRecord
     return "#{first_name} #{last_name}" if first_name || last_name
     "Anonymous"
   end
+
+   def check_friend_list(email)
+      friends.where(email: email).first
+   end
+
+
 end

@@ -1,0 +1,41 @@
+<div class = "justify-content-center">
+	<% if @user %>
+		<h1><%= @user.first_name%>'s Stocks Page</h1>
+		<div class="special-card text-center">
+			<!-- I should combine first and last name's -->
+			<strong><p><%= @user.first_name %> <%= @user.last_name %></p></strong>
+			<strong>E-mail: </strong> <%= @user.email %>
+			  <div style="margin: 24px 0;">
+			    <a href="#"><i class="fa fa-dribbble"></i></a> 
+			    <a href="#"><i class="fa fa-twitter"></i></a>  
+			    <a href="#"><i class="fa fa-linkedin"></i></a>  
+			    <a href="#"><i class="fa fa-facebook"></i></a> 
+			  </div>
+		</div>
+
+		<% if !@user.stocks.blank? %>
+		<div class="row">
+			<div class="col-9">
+				<table class="table table-bordered ">
+					   <thead>
+					    <tr>
+					      <th scope="col">Ticker</th>
+					      <th scope="col">Name</th>
+					      <th scope="col">Price</th>
+					    </tr>
+					  </thead>
+				  <tbody>
+				    <% @tracked_stocks.each do |stock| %>
+				    	<tr>
+					      <th scope="row"><%= stock.ticker%></th>
+					      <td><%= stock.name %></td>
+					      <td><%= stock.last_price%></td>
+				    	</tr>
+				    <% end %>
+				  </tbody>
+				</table>
+			</div>
+		</div>
+		<% end %>
+	<% end %>
+</div>

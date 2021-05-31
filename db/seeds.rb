@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-	User.create(email: "Test8@Test.com", first_name: "Jolie", last_name: "Jacques-Rousseau", password: "password")
-	User.create(email: "Test9@Test.com", first_name: "Juliette", last_name: "Jacques-Rousseau", password: "password")
-	User.create(email: "Test10@Test.com", first_name: "Julie", last_name: "Jacques-Rousseau", password: "password")
-	User.create(email: "Test11@Test.com", first_name: "Jeanette", last_name: "Jacques-Rousseau", password: "password")
-	User.create(email: "Test12@Test.com", first_name: "JeNeSaisQuoi", last_name: "Jacques-Rousseau", password: "password")
+	User.create(email: "Test1@Test.com", first_name: "Andromache", last_name: "Hope", password: "password")
+	User.create(email: "Test2@Test.com", first_name: "Aeneas", last_name: "Anchises", password: "password")
+	User.create(email: "Test3@Test.com", first_name: "Cassandra", last_name: "Costeau", password: "password")
+	User.create(email: "Test4@Test.com", first_name: "Helen", last_name: "Of Troy", password: "password")
+	User.create(email: "Test5@Test.com", first_name: "Priam", last_name: "Troy", password: "password")
